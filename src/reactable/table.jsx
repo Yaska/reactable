@@ -204,14 +204,14 @@ export class Table extends React.Component {
     componentWillMount() {
         this.initialize(this.props);
         this.sortByCurrentSort();
-        this.filterBy(this.props.filterBy);
+        this.filterBy(this.props.filterBy != null ? this.props.filterBy : this.state.filter);
     }
 
     componentWillReceiveProps(nextProps) {
         this.initialize(nextProps);
         this.updateCurrentSort(nextProps.sortBy);
         this.sortByCurrentSort();
-        this.filterBy(nextProps.filterBy);
+        this.filterBy(this.props.filterBy != null ? this.props.filterBy : this.state.filter);
     }
 
     applyFilter(filter, children) {
