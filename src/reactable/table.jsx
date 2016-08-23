@@ -430,9 +430,10 @@ export class Table extends React.Component {
                         }
                     }
                 }
-
+                const {className} = props
+                const id = props.i
                 return (
-                    <Tr columns={columns} key={i} data={data} {...props} />
+                    <Tr key={i} i={id} {...{className, data, columns}} />
                 );
             }.bind(this)));
         }

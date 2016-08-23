@@ -6,7 +6,7 @@ import { filterPropsFrom } from './lib/filter_props_from';
 export class Tr extends React.Component {
     render() {
         var children = toArray(React.Children.children(this.props.children));
-
+        const {className} = this.props
         if (
             this.props.data &&
                 this.props.columns &&
@@ -36,7 +36,7 @@ export class Tr extends React.Component {
         }
 
         // Manually transfer props
-        var props = filterPropsFrom(this.props);
+        var {i, ...props} = filterPropsFrom(this.props);
 
         return React.DOM.tr(props, children);
     }
